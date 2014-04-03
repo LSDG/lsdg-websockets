@@ -18,6 +18,8 @@ angular.module('chat-app', [
         .otherwise({redirectTo: '/'});
 }]).run(['$rootScope', '$location', function($rootScope, $location)
 {
+    $rootScope.chat = [];
+
     $rootScope.getPath = function()
     {
         return $location.path();

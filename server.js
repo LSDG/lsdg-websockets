@@ -12,6 +12,7 @@ var connect = require('connect');
 var urlrouter = require('urlrouter');
 
 var router = require('./server/router');
+var websocket = require('./server/websocket');
 
 //----------------------------------------------------------------------------------------------------------------------
 

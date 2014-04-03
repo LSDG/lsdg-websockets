@@ -1,6 +1,7 @@
 .chat-page .well {
     height: 500px;
     margin-bottom: 5px;
+    overflow-y: auto;
 }
 
 .chat-page .chat-options {

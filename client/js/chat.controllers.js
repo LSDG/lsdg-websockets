@@ -57,14 +57,64 @@ function LongController($scope, $http, $timeout)
         $scope.message = "";
     }; // end sendMessage
 
+    // Get the latest on initial page load
+    $http.get('/chat').success(function(data)
+    {
+        $scope.chat = data;
+    });
+
     // poll for changes
     poll();
 } // end LongController
 
 // ---------------------------------------------------------------------------------------------------------------------
 
-function WSController($scope)
+function WSController($scope, $location)
 {
+    var connection = new WebSocket('ws://' + $location.host() +':3030');
+
+    connection.onopen = function(){
+        // Get the latest chat on page load
+        connection.send(JSON.stringify({ type: 'get-chat' }));
+    };
+
+    connection.onmessage = function(event)
+    {
+        var msg = JSON.parse(event.data);
+
+        switch(msg.type)
+        {
+            case 'chat-line':
+                $scope.$apply(function()
+                {
+                    $scope.chat.unshift(msg.content);
+                });
+                break;
+
+            case 'chat-full':
+                $scope.$apply(function()
+                {
+                    $scope.chat = msg.content;
+                });
+
+                break;
+        } // end switch
+    };
+
+    $scope.sendMessage = function(name, message)
+    {
+        var envelope = {
+            type: 'message',
+            content: {
+                name: name,
+                message: message
+            }
+        };
+        connection.send(JSON.stringify(envelope));
+
+        // Clear the message
+        $scope.message = "";
+    }; // end sendMessage
 
 } // end WSController
 
@@ -73,6 +123,6 @@ function WSController($scope)
 angular.module('app-chat.controllers').controller('MainController', MainController);
 angular.module('app-chat.controllers').controller('PostController', ['$scope', '$http', PostController]);
 angular.module('app-chat.controllers').controller('LongController', ['$scope', '$http', '$timeout', LongController]);
-angular.module('app-chat.controllers').controller('WSController', ['$scope', WSController]);
+angular.module('app-chat.controllers').controller('WSController', ['$scope', '$location', WSController]);
 
 // ---------------------------------------------------------------------------------------------------------------------

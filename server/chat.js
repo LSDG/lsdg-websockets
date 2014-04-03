@@ -18,7 +18,7 @@ ChatMessages.prototype.getMessages = function()
 ChatMessages.prototype.appendMessage = function(message)
 {
     var self = this;
-    this.messages.push(message);
+    this.messages.unshift(message);
 
     // Empty the queue of waiting callbacks
     this.waitingOnMessages.forEach(function(callback)
