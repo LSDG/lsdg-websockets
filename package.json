@@ -1,0 +1,21 @@
+{
+  "name": "lsdg-websockets-demo",
+  "version": "0.1.0",
+  "description": "Implements a basic chat application using pure post, short polling, long polling, and websockets. ",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "websockets",
+    "longpolling",
+    "lsdg"
+  ],
+  "author": "Christopher S. Case <chris.case@g33xnexus.com>",
+  "license": "MIT",
+  "dependencies": {
+    "ws": "~0.4.31",
+    "connect": "~2.14.3"
+  }
+}

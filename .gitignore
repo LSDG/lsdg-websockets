@@ -1,0 +1,19 @@
+# Project directories
+built
+vendor
+
+# Editor artifacts
+**.swp
+
+# NPM cruft
+node_modules
+**.log
+
+# bower cruft
+bower_components
+
+# Jetbrains IDE project files
+.idea
+
+# Database
+db

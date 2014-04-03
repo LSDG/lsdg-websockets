@@ -1,0 +1,25 @@
+{
+  "name": "chatapp",
+  "version": "0.1.0",
+  "authors": [
+    "Christopher S. Case <chris.case@g33xnexus.com>"
+  ],
+  "description": "A simple chat application, implemented using several web technologies.",
+  "main": "index.html",
+  "moduleType": [
+    "globals"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.1.1",
+    "angular": "~1.2.15"
+  }
+}
