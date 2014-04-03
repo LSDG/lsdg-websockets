@@ -1,0 +1,16 @@
+<div class="container chat-page">
+    <div ng-if="refresh" class="chat-options text-right">
+        <button class="btn btn-primary btn-xs" ng-click="refresh()">Refresh</button>
+    </div>
+    <div class="well">
+        <div class="chat-row" ng-repeat="chatline in chat track by $index">
+            <div class="name-col text-right" ng-class="{self: chatline.name == username}">{{ chatline.name }}:</div>
+            <div class="message-col">{{ chatline.message }}</div>
+        </div>
+    </div>
+    <div class="send-bar">
+        <input type="text" class="form-control user-name" id="userName" placeholder="User Name" ng-model="username">
+        <input type="text" class="form-control message" id="message" placeholder="Message" ng-model="message" ng-enter="sendMessage(username, message)">
+        <button type="submit" class="btn btn-primary" ng-click="sendMessage(username, message)">Send</button>
+    </div>
+</div>

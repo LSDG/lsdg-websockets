@@ -1,0 +1,41 @@
+.chat-page .well {
+    height: 500px;
+    margin-bottom: 5px;
+}
+
+.chat-page .chat-options {
+    margin-bottom: 5px;
+}
+
+.chat-page .name-col {
+    color: #afa6ca;
+    float: left;
+    width: 120px;
+    display: inline-block;
+}
+
+.chat-page .name-col.self {
+    color: #a5b492;
+}
+
+.chat-page .message-col {
+    margin-left: 125px;
+}
+
+.chat-page .send-bar {
+    width: 100%;
+}
+
+.chat-page .send-bar input {
+    display: inline-block;
+}
+
+.chat-page .send-bar .user-name {
+    width: 150px;
+}
+
+.chat-page .send-bar .message {
+    width: -calc(100% - 218px);
+    width: -webkit-calc(100% - 218px);
+    width: -moz-calc(100% - 218px);
+}

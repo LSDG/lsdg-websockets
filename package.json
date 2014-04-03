@@ -16,6 +16,7 @@
   "license": "MIT",
   "dependencies": {
     "ws": "~0.4.31",
-    "connect": "~2.14.3"
+    "connect": "~2.14.3",
+    "urlrouter": "~0.5.4"
   }
 }
